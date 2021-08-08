@@ -1,0 +1,85 @@
+.newMovie {
+  flex: 4;
+}
+
+.addMovieForm {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.addMovieItemRowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.addMovieItem {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 20px;
+}
+
+.addMovieItem > label {
+  color: gray;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.addMovieItem > input {
+  padding: 10px;
+}
+
+.addMovieItem > select {
+  padding: 10px;
+}
+
+.addMovieButtonContainer {
+  position: relative;
+}
+
+.addMovieButtonPosition {
+  position: absolute;
+  right: 8.5%;
+}
+
+.buttonAction {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.addMovieButton {
+  height: 30px;
+  width: 200px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: darkblue;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: center;
+}
+
+.uploadContainer {
+  display: flex;
+  align-items: center;
+}
+
+.uploadFile {
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+label.uploadFile:disabled {
+  color: gray;
+}

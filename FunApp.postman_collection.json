@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "3fe42990-48ae-477c-aab1-381028bf61de",
+		"name": "FunApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Update Movie",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"New title\",\r\n    \"desc\":\"New des\",\r\n    \"imgPath\":\"\",\r\n    \"trailerPath\":\"New trailerPath\",\r\n    \"videoPath\":\"New videoPath\",\r\n    \"stars\":3,\r\n    \"rating\":500,\r\n    \"genre\":\"Action\",\r\n    \"isSeries\":true,\r\n    \"actors\":[\"\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/movies/610e97f5ba5ad34bf88d7e3a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"movies",
+						"610e97f5ba5ad34bf88d7e3a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Actor",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"anything\",\r\n    \"nickname\":\"anything\",\r\n    \"imgPath\":\"anything\",\r\n    \"rating\":500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/actors/610922c3efb71b323c9f5e6c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"actors",
+						"610922c3efb71b323c9f5e6c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Movie",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"New test2\",\r\n    \"desc\":\"New test\",\r\n    \"imgPath\":\"New test\",\r\n    \"trailerPath\":\"New test\",\r\n    \"videoPath\":\"New test\",\r\n    \"stars\":3,\r\n    \"rating\":500,\r\n    \"genre\":\"Action\",\r\n    \"isSeries\":true,\r\n    \"actors\":[\"\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Actor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"anythingd\",\r\n    \"nickname\":\"anything\",\r\n    \"imgPath\":\"anything\",\r\n    \"rating\":500\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/actors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"actors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Movie",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/movies/6107ac02ba576001f4f61141",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"movies",
+						"6107ac02ba576001f4f61141"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Actor",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/actors/6107ac02ba576001f4f61141",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"actors",
+						"6107ac02ba576001f4f61141"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Actor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/actors/6107ac02ba576001f4f61141",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"actors",
+						"6107ac02ba576001f4f61141"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movie",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3002/api/movies/610e976194348b2dd4bf4b5c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"movies",
+						"610e976194348b2dd4bf4b5c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movies",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"really\":\"ahah\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/movies?pageSize=10&currentPage=1&sort={\"key\":\"title\", \"direction\":\"asc\"}&query=[{\"key\":\"title\",\"value\":\"Hero\"}]",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "currentPage",
+							"value": "1"
+						},
+						{
+							"key": "sort",
+							"value": "{\"key\":\"title\", \"direction\":\"asc\"}"
+						},
+						{
+							"key": "query",
+							"value": "[{\"key\":\"title\",\"value\":\"Hero\"}]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Movies - Without filters",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"really\":\"ahah\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3002/api/movies?pageSize=10&currentPage=1&sort={\"key\":\"title\", \"direction\":\"asc\"}&query=[{\"key\":\"title\",\"value\":\"New test2\"}]",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"api",
+						"movies"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "currentPage",
+							"value": "1"
+						},
+						{
+							"key": "sort",
+							"value": "{\"key\":\"title\", \"direction\":\"asc\"}"
+						},
+						{
+							"key": "query",
+							"value": "[{\"key\":\"title\",\"value\":\"New test2\"}]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Actors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"really\":\"ahah\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/actors?pageSize=10&currentPage=1&sort={\"key\":\"name\", \"direction\":\"asc\"}&query=[{\"key\":\"name\",\"value\":\"anythingd\"}]",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"actors"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "currentPage",
+							"value": "1"
+						},
+						{
+							"key": "sort",
+							"value": "{\"key\":\"name\", \"direction\":\"asc\"}"
+						},
+						{
+							"key": "query",
+							"value": "[{\"key\":\"name\",\"value\":\"anythingd\"}]"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

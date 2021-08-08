@@ -1,0 +1,64 @@
+swagger: "2.0"
+info:
+  title: "Swagger"
+  description: "This is Funn App API."
+  version: "1.0.0"
+host: "localhost:3002"
+basePath: "/api"
+schemes:
+  - "http"
+paths:
+  /movies:
+    get:
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: query
+          name: query
+          schema:
+            type: string
+        - in: query
+          name: skip
+          schema:
+            type: integer
+        - in: query
+          name: pageSize
+          schema:
+            type: integer
+        - in: query
+          name: sort
+          schema:
+            type: string
+      responses:
+        200:
+          description: "Service is up and healthy"
+          schema:
+            $ref: "#/definitions/movies"
+        500:
+
+responses:
+  500:
+    description: Internal Server Error
+    schema:
+      $ref: "#/definitions/Error"
+
+definitions:
+  movies:
+    type: "object"
+    properties:
+      title:
+        type: "string"
+      desc:
+        type: "string"
+      imgPath:
+        type: "string"
+      trailerPath:
+        type: "string"
+      videoPath:
+        type: "string"
+      genre:
+        type: "string"
+      isSeries:
+        type: "boolean"
