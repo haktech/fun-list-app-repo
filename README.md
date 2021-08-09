@@ -35,7 +35,7 @@ This repository contains all the required code for Fun List App:
 
 - ### STEPS
   1. clone the project to your local
-  2. go to FUNLIST/api/
+  2. go to fun-list-app-repo/api/
   3. npm i
   4. npm start (You should see consoled messages "Backend server started!" & "DB is up")
   5. Backend server uri: http://localhost:3002/api
@@ -45,7 +45,7 @@ This repository contains all the required code for Fun List App:
 ## Finally, Launching Client (Frontend)
 
 - ### STEPS
-  1. Open new console terminal and go to FUNLIST/client/
+  1. Open new console terminal and go to fun-list-app-repo/client/
   2. npm i
   3. npm start (Building might take long due to Cypress) I wanted to use Vite instead of webpack for faster bundling process but i ran out of time
   4. Have fun!
