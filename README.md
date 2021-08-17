@@ -7,7 +7,7 @@ This repository contains all the required code for Fun List App:
 - API endpoint to serve save/retrieve/update fun lists (movies & actors)
 - Client which is a reactjs client for viewing and managing fun lists
 
-## Pre-req for running it locally. Please note that i'm leaving my valid configurations for smoother evaluation experience. I will deactivate the resources secrets by the end of the week
+## Pre-req for running it locally.
 
 - ### Setup mongoDB
   1. Set environment variable in /api/.env file with a valid mongodb connection string
