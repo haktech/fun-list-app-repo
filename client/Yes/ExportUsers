@@ -1,0 +1,79 @@
+﻿Add-Type -Path ".\Microsoft.SharePoint.Client.dll"
+Add-Type -Path ".\Microsoft.SharePoint.Client.Runtime.dll"
+
+
+ function GetUserGroups()
+        {
+         Param(
+        [string] $webFullUrl,
+        [string] $groupPrefix,
+        [PSCredential] $credential
+    )
+    
+            $outputFileString=@();
+
+            $ctx = New-Object Microsoft.SharePoint.Client.ClientContext($webFullUrl)
+            $ctx.Credentials = $credential
+
+
+            $web = $ctx.Web;
+            $ctx.Load($web);
+            $siteGroups = $ctx.Web.RoleAssignments;
+            $ctx.Load($siteGroups);
+            $ctx.ExecuteQuery();
+            
+            foreach ($sg in $siteGroups)
+            {
+                $ctx.Load($sg.Member);
+                $ctx.ExecuteQuery();
+                Write-Host($sg.Member.Title);
+                if($sg.Member.Title.Contains("_Executive") -Or $sg.Member.Title.Contains("_Focal") -Or $sg.Member.Title.Contains("_Manager"))
+                {
+
+                    $users = $ctx.Web.SiteGroups.GetById($sg.Member.Id).Users;
+                    $ctx.Load($users);
+                    $ctx.ExecuteQuery();
+                    foreach ($usr in $users)
+                    {
+                    
+                        $outputLine=New-Object PSObject
+                        if ($sg.Member.Title.Contains("_Focal"))
+                        {
+                            Write-Host("C_" + $groupPrefix + " Owners , " + $usr.Email);
+                            $groupName ="C_" + $groupPrefix + " Owners"
+
+                            $outputLine | Add-Member -NotePropertyName GroupName -NotePropertyValue $groupName
+                            $outputLine | Add-Member -NotePropertyName LoginName -NotePropertyValue $usr.Email
+                            $outputFileString+=$outputLine
+                        }
+                        else
+                        {
+                            Write-Host("C_" + $groupPrefix + " Members , " + $usr.Email);
+                            $groupName ="C_" + $groupPrefix + " Members"
+
+                            $outputLine | Add-Member -NotePropertyName GroupName -NotePropertyValue $groupName 
+                            $outputLine | Add-Member -NotePropertyName LoginName -NotePropertyValue $usr.Email
+                              
+                            $outputFileString+=$outputLine
+                        }
+                        
+                    }
+                }
+
+            }
+            return $outputFileString;
+        }
+   
+
+$Credentials = Get-Credential   
+$csvFile = ".\SabahConfidential.csv"
+$table = Import-Csv $csvFile -Delimiter ","
+
+$outputFileString=@();
+foreach ($row in $table) {
+   $outputFileString +=GetUserGroups -webFullUrl $row.SiteUrl  -groupPrefix $row.Prefix -credential $Credentials
+
+}
+
+$outputFileName = ".\ExportUsers.csv"
+$outputFileString | Export-Csv -Path $outputFileName -NoTypeInformation 

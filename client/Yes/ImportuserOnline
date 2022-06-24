@@ -1,0 +1,42 @@
+﻿$CSVPath  =".\ExportUsers.csv"
+ 
+#Get data from CSV
+$CSVData = Import-Csv $CSVPath
+$SiteURL = "https://petronas.sharepoint.com/sites/ecm_sabah"
+ 
+#Connect to SharePoint Online Site
+Write-host "Connecting to Site: "$SiteURL
+Connect-PnPOnline -Url $SiteURL -UseWebLogin
+#Iterate through each row in CSV
+
+$outputFileString=@();
+
+ForEach($Row in $CSVData)
+{
+    Try { 
+  
+        #Get the group
+        $Group = Get-PnPGroup -Identity $Row.GroupName
+  
+        #Add Each user to the Group
+        Add-PnPGroupMember -LoginName $Row.UserAccount -Identity $Group
+        Write-host -f Green "`tAdded User $($Row.UserAccount) to $($Group.Title)"
+        
+    }
+    Catch {
+    
+        $outputLine=New-Object PSObject
+        $outputLine | Add-Member -NotePropertyName GroupName -NotePropertyValue $Row.GroupName 
+        $outputLine | Add-Member -NotePropertyName LoginName -NotePropertyValue $Row.UserAccount
+        $outputLine | Add-Member -NotePropertyName Message -NotePropertyValue $_.Exception.Message
+                              
+        $outputFileString+=$outputLine
+
+        write-host -f Red "Error Adding User to Group:" $_.Exception.Message
+    }
+}
+$outputFileName = ".\ImportUsersErrorLog.csv"
+$outputFileString | Export-Csv -Path $outputFileName -NoTypeInformation 
+
+DisConnect-PnPOnline
+
